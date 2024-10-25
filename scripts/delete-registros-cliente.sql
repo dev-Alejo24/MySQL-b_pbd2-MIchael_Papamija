@@ -2,7 +2,7 @@
 USE borrador_pbd2;
 
 -- Delete a single record
-DELETE FROM cliente WHERE id_cliente = 1;
+DELETE FROM customer WHERE id_customer = 1;
 
 -- Delete multiple records
-DELETE FROM cliente WHERE id_cliente IN (2, 3, 4);
+DELETE FROM customer WHERE id_customer IN (2, 3, 4);

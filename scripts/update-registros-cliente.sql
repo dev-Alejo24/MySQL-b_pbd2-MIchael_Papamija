@@ -2,9 +2,10 @@
 USE borrador_pbd2;
 
 -- Update a single record
-UPDATE cliente SET nombre = 'Juan Carlos', apellido = 'Pérez García' WHERE id_cliente = 1;
-select * from cliente;
+UPDATE customer SET first_name = 'Juan', middle_name = 'Carlos', last_name_paternal = 'Pérez', last_name_maternal = 'Garcia'
+ WHERE id_customer = 1;
+select * from customer;
 
 -- Update multiple records
-UPDATE cliente SET id_metodo_pago = 2 WHERE id_cliente IN (2, 3, 4);
-select * from cliente;
+UPDATE customer SET id_payment_method = 2 WHERE id_customer IN (2, 3, 4);
+select * from customer;

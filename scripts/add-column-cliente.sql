@@ -1,5 +1,5 @@
 -- ADD COLUMN
 USE borrador_pbd2;
 
-ALTER TABLE cliente ADD COLUMN fecha_nacimiento DATE;
-select * from cliente;
+ALTER TABLE customer ADD COLUMN date_birth DATE;
+select * from customer;

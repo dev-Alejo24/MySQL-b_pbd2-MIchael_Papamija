@@ -1,74 +1,74 @@
 USE borrador_pbd2;
 
--- tipo de documento 
-INSERT INTO tipo_documento (tipo_documento) VALUES
+-- Document Type
+INSERT INTO document_type (name_dt) VALUES
 ('DNI'),
-('Pasaporte'),
-('Cédula'),
-('Licencia'),
-('Otro');
-SELECT * FROM tipo_documento;
+('Passport'),
+('ID Card'),
+('License'),
+('Other');
+SELECT * FROM document_type;
 
--- cargo
-INSERT INTO cargo (cargo, descripcion) VALUES
-('Administrador', 'Persona encargada de administrar el sistema'),
-('Vendedor', 'Persona encargada de vender productos'),
-('Contador', 'Persona encargada de contabilidad'),
-('Recepcionista', 'Persona encargada de recibir clientes'),
-('Gerente', 'Persona encargada de gerenciar el negocio');
-SELECT * FROM cargo;
+-- Position
+INSERT INTO pos (name_pos, descrip) VALUES
+('Administrator', 'Person in charge of managing the system'),
+('Salesperson', 'Person in charge of selling products'),
+('Accountant', 'Person in charge of accounting'),
+('Receptionist', 'Person in charge of receiving clients'),
+('Manager', 'Person in charge of managing the business');
+SELECT * FROM pos;
 
--- turno
-INSERT INTO turno (turno, descripcion) VALUES
-('Mañana', 'Turno de mañana'),
-('Tarde', 'Turno de tarde'),
-('Noche', 'Turno de noche'),
-('Rotativo', 'Turno rotativo'),
-('Flexible', 'Turno flexible');
-SELECT * FROM turno;
+-- Shift
+INSERT INTO shift (name_sh, descrip) VALUES
+('Morning', 'Morning shift'),
+('Afternoon', 'Afternoon shift'),
+('Night', 'Night shift'),
+('Rotating', 'Rotating shift'),
+('Flexible', 'Flexible shift');
+SELECT * FROM shift;
 
--- método de pago 
-INSERT INTO metodo_pago (metodo_pago, descripcion) VALUES
-('Efectivo', 'Pago en efectivo'),
-('Tarjeta de crédito', 'Pago con tarjeta de crédito'),
-('Transferencia', 'Pago por transferencia bancaria'),
-('Cheque', 'Pago con cheque'),
-('PayPal', 'Pago con PayPal');
-SELECT * FROM metodo_pago;
+-- Payment Method
+INSERT INTO payment_method (name_pm, descrip) VALUES
+('Cash', 'Payment in cash'),
+('Credit Card', 'Payment with credit card'),
+('Transfer', 'Payment by bank transfer'),
+('Check', 'Payment by check'),
+('PayPal', 'Payment with PayPal');
+SELECT * FROM payment_method;
 
--- cliente 
-INSERT INTO cliente (nombre, apellido, id_tipo_documento, documento, telefono, email, direccion, id_metodo_pago) VALUES
-('Juan', 'Pérez', 1, '12345678', '1234567890', 'juan.perez@example.com', 'Calle 1', 3),
-('María', 'González', 2, '98765432', '9876543210', 'maria.gonzalez@example.com', 'Calle 2', 1),
-('Pedro', 'Rodríguez', 3, '11111111', '1111111111', 'pedro.rodriguez@example.com', 'Calle 3', 4),
-('Ana', 'Sánchez', 4, '22222222', '2222222222', 'ana.sanchez@example.com', 'Calle 4', 2),
-('Luis', 'Martínez', 5, '33333333', '3333333333', 'luis.martinez@example.com', 'Calle 5', 5);
-SELECT * FROM cliente;
+-- Customer
+INSERT INTO customer (first_name, middle_name, last_name_maternal, last_name_paternal, id_document_type, document, phone, email, address, id_payment_method) VALUES
+('Juan', 'Pérez', 'Pérez', 'Pérez', 1, '12345678', '1234567890', 'juan.perez@example.com', 'Street 1', 3),
+('María', 'González', 'González', 'González', 2, '98765432', '9876543210', 'maria.gonzalez@example.com', 'Street 2', 1),
+('Pedro', 'Rodríguez', 'Rodríguez', 'Rodríguez', 3, '11111111', '1111111111', 'pedro.rodriguez@example.com', 'Street 3', 4),
+('Ana', 'Sánchez', 'Sánchez', 'Sánchez', 4, '22222222', '2222222222', 'ana.sanchez@example.com', 'Street 4', 2),
+('Luis', 'Martínez', 'Martínez', 'Martínez', 5, '33333333', '3333333333', 'luis.martinez@example.com', 'Street 5', 5);
+SELECT * FROM customer;
 
--- empleado
-INSERT INTO empleado (nombre, apellido, id_tipo_documento, documento, telefono, email, direccion, id_cargo, id_turno, fecha_contratacion, salario) VALUES
-('Carlos', 'García', 1, '44444444', '4444444444', 'carlos.garcia@example.com', 'Calle 6', 1, 1, '2020-01-01', 50000.00),
-('Sofía', 'Díaz', 2, '55555555', '5555555555', 'sofia.diaz@example.com', 'Calle 7', 2, 2, '2020-02-01', 60000.00),
-('Miguel', 'Hernández', 3, '66666666', '6666666666', 'miguel.hernandez@example.com', 'Calle 8', 3, 3, '2020-03-01', 70000.00),
-('Laura', 'Gómez', 4, '77777777', '7777777777', 'laura.gomez@example.com', 'Calle 9', 4, 4, '2020-04-01', 80000.00),
-('Javier', 'López', 5, '88888888', '8888888888', 'javier.lopez@example.com', 'Calle 10', 5, 5, '2020-05-01', 90000.00);
-SELECT * FROM empleado;
+-- Employee
+INSERT INTO employee (first_name, middle_name, last_name_maternal, last_name_paternal, id_document_type, document, phone, email, address, id_position, id_shift, hiring_date, salary) VALUES
+('Carlos', 'García', 'García', 'García', 1, '44444444', '4444444444', 'carlos.garcia@example.com', 'Street 6', 1, 1, '2020-01-01', 50000.00),
+('Sofía', 'Díaz', 'Díaz', 'Díaz', 2, '55555555', '5555555555', 'sofia.diaz@example.com', 'Street 7', 2, 2, '2020-02-01', 60000.00),
+('Miguel', 'Hernández', 'Hernández','Hernández' ,3,'66666666','6666666666','miguel.hernandez@example.com','Street 8' ,3 ,3 ,'2020-03-01' ,70000.00),
+('Laura','Gómez','Gómez','Gómez' ,4,'77777777','7777777777','laura.gomez@example.com','Street 9' ,4 ,4 ,'2020-04-01' ,80000.00),
+('Javier','López','López','López' ,5,'88888888','8888888888','javier.lopez@example.com','Street 10' ,5 ,5 ,'2020-05-01' ,90000.00);
+SELECT * FROM employee;
 
--- detalle_pago (tabla débil)
-INSERT INTO detalle_pago (id_cliente, fecha_pago, monto_pago, id_metodo_pago) VALUES
+-- Payment Detail (Weak Table)
+INSERT INTO payment_detail (id_customer, payment_date, payment_amount, id_payment_method) VALUES
 (1, '2023-09-10', 100.50, 3),
 (2, '2023-09-11', 200.00, 1),
 (3, '2023-09-12', 300.75, 4),
 (4, '2023-09-13', 400.30, 2),
 (5, '2023-09-14', 500.20, 5);
-SELECT * FROM detalle_pago;
+SELECT * FROM payment_detail;
 
--- telefono_cliente (atributo multivalorado)
-INSERT INTO telefono_cliente (id_cliente, telefono) VALUES
-(1, '1234567890'),
-(1, '0987654321'),
-(2, '9876543210'),
-(3, '1111111111'),
-(4, '2222222222'),
-(5, '3333333333');
-SELECT * FROM telefono_cliente;
+-- Customer Phone (Multivalued Attribute)
+INSERT INTO customer_phone (id_customer, phone) VALUES
+(1,'1234567890'),
+(1,'0987654321'),
+(2,'9876543210'),
+(3,'1111111111'),
+(4,'2222222222'),
+(5,'3333333333');
+SELECT * FROM customer_phone;

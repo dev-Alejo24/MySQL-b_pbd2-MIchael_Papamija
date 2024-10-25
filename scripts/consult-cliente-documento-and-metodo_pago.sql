@@ -1,4 +1,4 @@
 USE borrador_pbd;
 
-SELECT * FROM cliente 
-WHERE documento LIKE '2%' AND id_metodo_pago != 1;
+SELECT * FROM customer 
+WHERE document LIKE '2%' AND id_payment_method != 1;
